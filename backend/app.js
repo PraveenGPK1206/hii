@@ -4,11 +4,11 @@ const app=express();
 const bodyParser = require('body-parser');
 const server=http.createServer(app);
 const port=process.env.PORT || 3000;
-app.use(express.static("/Backend/chat_hi/frontend/public"));
+app.use(express.static(__dirname+"/frontend/public"));
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.get('/',(req,res)=>{
-  res.sendFile("/Backend/chat_hi/frontend/login.html");
+  res.sendFile(__dirname+"/frontend/login.html");
 });
 app.post('/room', (req, res) => {
     room_name = req.body.room_name;
@@ -18,7 +18,7 @@ app.post('/room', (req, res) => {
 
 //Rooms
 app.get('/room', (req, res)=>{
-  res.sendFile("/Backend/chat_hi/frontend/room.html");
+  res.sendFile(__dirname+"/frontend/room.html");
 });
 const io =require("socket.io")(server);
 var users={}; 
