@@ -1,4 +1,4 @@
-const socket = io.connect('http://localhost:3000');
+const socket = io.connect('https://hii-qf50.onrender.com/');
 var username;
 var chats=document.querySelector(".chats");
 var roomMessage=document.querySelector(".title");
